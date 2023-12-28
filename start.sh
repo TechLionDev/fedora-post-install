@@ -56,3 +56,43 @@ mkdir ./reqFiles/Apps
 curl https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -o ./reqFiles/Apps/Chrome.rpm
 sudo dnf install ./reqFiles/Apps/Chrome.rpm -y
 
+# VSCode
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+dnf check-update
+sudo dnf install -y code
+
+# Node.js
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+source ~/.bashrc
+nvm install node
+node --version
+sudo npm install -g yarn
+yarn --version
+
+# Catppuccin Discord Theme
+curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+chmod +x betterdiscordctl
+sudo mv betterdiscordctl /usr/local/bin
+betterdiscordctl --d-install flatpak install
+echo "You Need To Manually Install the theme: https://github.com/catppuccin/discord"
+
+# Catppuccin GTK Theme
+echo "You Need To Manually Install the theme: https://github.com/catppuccin/gtk"
+
+# Install Gnome Extensions
+echo "You Need To Manually Install the Following Extensions:"
+echo "Add to Desktop"
+echo "Blur my Shell"
+echo "Clipboard History"
+echo "Compiz alike magic lamp effect"
+echo "Dash to Dock"
+echo "Desktop Cube"
+echo "Desktop Icons NG (DING)"
+echo "Gnome 4x UI Improvements"
+echo "Impatience"
+echo "Notification Banner Reloaded"
+echo "Rounded Window Corners"
+echo "Space Bar"
+echo "Tray Icons: Reloaded"
+echo "User Themes"
